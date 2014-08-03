@@ -4,57 +4,105 @@ Gradle Plugin User Guide 中文版
 
 目录
 
-	1 引言
-		1.1 [新构建系统的目标](https://github.com/inferjay/GradlePluginUserGuideCN#新构建系统的目标)
-		1.2 为什么用Gradle?	
-	2 要求	
-	3 基本项目
-		3.1 简单的构建文件
-		3.2 项目结构
-			3.2.1 配置项目结构
-		3.3 构建任务
-			3.3.1 普通构建任务
-			3.3.2 Java项目构建任务
-			3.3.3 Android项目构建任务
-		3.4 基本构建定制
-			3.4.1 Manifest entries
-			3.4.2 构建类型
-			3.4.3 签名配置
-			3.4.4 运行ProGuard
-	4 依赖, Android库和多项目设置
-		4.1 二进制软件包的依赖
-			4.1.1 本地包
-			4.1.2 远程包
-		4.2 多项目设置
-		4.3 库项目
-			4.3.1 创建一个库项目
-			4.3.2 项目和库项目之间的差异
-			4.3.3 引用一个库
-			4.3.4 库的发布
-	5 测试
-		5.1 基本信息和配置
-		5.2 运行测试
-		5.3 测试Android Libraries
-		5.4 测试报告
-			5.4.1 单个项目测试报告
-			5.4.2 多个项目测试报告
-		5.5 Lint支持
-	6 构建变体
-		6.1 Product flavors
-		6.2 构建类型 + Product Flavor = 构建变体
-		6.3 Product Flavor配置
-		6.4 源码集合和依赖
-		6.5 构建和任务
-		6.6 测试Multi-flavor项目
-		6.7 Multi-flavor variants
-	7 高级构建定制
-		7.1 构建选项
-			7.1.1 Java编译选项
-			7.1.2 aapt选项
-			7.1.3 dex选项
-		7.2 操纵构建任务
-		7.3 构建类型和Product Flavor属性引用
-		7.4 使用sourceCompatibility 1.7
+1. [**引言**](https://github.com/inferjay/GradlePluginUserGuideCN#引言)
+	
+	1.1. [新构建系统的目标](https://github.com/inferjay/GradlePluginUserGuideCN#新构建系统的目标)
+	
+	1.2. [为什么用Gradle?](https://github.com/inferjay/GradlePluginUserGuideCN#为什么用gradle)	
+2. [**要求**](https://github.com/inferjay/GradlePluginUserGuideCN#要求)	
+3. [**基本项目**](https://github.com/inferjay/GradlePluginUserGuideCN#基本项目)
+
+	3.1 [简单的构建文件](https://github.com/inferjay/GradlePluginUserGuideCN#简单的构建文件)
+	
+	3.2 [项目结构](https://github.com/inferjay/GradlePluginUserGuideCN#项目结构)
+	
+	3.2.1 [配置项目结构](https://github.com/inferjay/GradlePluginUserGuideCN#项目结构配置)
+	
+	3.3 [构建任务](https://github.com/inferjay/GradlePluginUserGuideCN#构建任务)
+	
+	3.3.1 [普通构建任务](https://github.com/inferjay/GradlePluginUserGuideCN#普通构建任务)
+		
+	3.3.2 [Java项目构建任务](https://github.com/inferjay/GradlePluginUserGuideCN#java项目构建任务)
+			
+	3.3.3 [Android项目构建任务](https://github.com/inferjay/GradlePluginUserGuideCN#android项目构建任务)
+			
+	3.4 [基本构建定制](https://github.com/inferjay/GradlePluginUserGuideCN#基本构建定制)
+	
+	3.4.1 [Manifest entries](https://github.com/inferjay/GradlePluginUserGuideCN#manifest-entries)
+	
+	3.4.2 [构建类型](https://github.com/inferjay/GradlePluginUserGuideCN#构建类型)
+	
+	3.4.3 [签名配置](https://github.com/inferjay/GradlePluginUserGuideCN#签名配置)
+			
+	3.4.4 [运行ProGuard](https://github.com/inferjay/GradlePluginUserGuideCN#运行proguard)
+			
+4. [**依赖, Android库和多项目设置**](https://github.com/inferjay/GradlePluginUserGuideCN#依赖-android库和多项目设置)
+	
+	4.1 [依赖二进制包](https://github.com/inferjay/GradlePluginUserGuideCN#依赖二进制包)
+			
+	4.1.1 [本地包](https://github.com/inferjay/GradlePluginUserGuideCN#本地包)
+	
+	4.1.2 [远程包](https://github.com/inferjay/GradlePluginUserGuideCN#远程包)
+	
+	4.2 [多项目设置](https://github.com/inferjay/GradlePluginUserGuideCN#多项目设置)
+		
+	4.3 [Library项目](https://github.com/inferjay/GradlePluginUserGuideCN#library项目)
+			
+	4.3.1 [创建一个Library项目](https://github.com/inferjay/GradlePluginUserGuideCN#创建一个library项目)
+	
+	4.3.2 [项目和Library项目之间的差异](https://github.com/inferjay/GradlePluginUserGuideCN#项目和library项目之间的差异)
+	
+	4.3.3 [引用一个Library](https://github.com/inferjay/GradlePluginUserGuideCN#引用一个library)
+	
+	4.3.4 [Library的发布](https://github.com/inferjay/GradlePluginUserGuideCN#library的发布)
+	
+5. [**测试**](https://github.com/inferjay/GradlePluginUserGuideCN#测试)
+
+	5.1 [测试的基本信息和配置](https://github.com/inferjay/GradlePluginUserGuideCN#测试的基本信息和配置)
+	
+	5.2 [运行测试](https://github.com/inferjay/GradlePluginUserGuideCN#运行测试)
+	
+	5.3 [测试Android Libraries](https://github.com/inferjay/GradlePluginUserGuideCN#测试android-libraries)
+	
+	5.4 [测试报告](https://github.com/inferjay/GradlePluginUserGuideCN#测试报告)
+	
+	5.4.1 [单个项目的测试报告](https://github.com/inferjay/GradlePluginUserGuideCN#单个项目的测试报告)
+	
+	5.4.2 [多个项目的测试报告](https://github.com/inferjay/GradlePluginUserGuideCN#多项目的测试报告)
+	
+	5.5 [Lint支持](https://github.com/inferjay/GradlePluginUserGuideCN#lint支持)
+	
+6. [**构建变体**](https://github.com/inferjay/GradlePluginUserGuideCN#构建变体)
+
+	6.1 [Product flavors](https://github.com/inferjay/GradlePluginUserGuideCN#product-flavors)
+	
+	6.2 [构建类型 + Product Flavor = 构建变体](https://github.com/inferjay/GradlePluginUserGuideCN#构建类型--product-flavor--构建变体)
+	
+	6.3 [Product Flavor配置](https://github.com/inferjay/GradlePluginUserGuideCN#Product Flavor配置)
+	
+	6.4 [源码集合和依赖](https://github.com/inferjay/GradlePluginUserGuideCN#源码集合和依赖)
+	
+	6.5 [构建和任务](https://github.com/inferjay/GradlePluginUserGuideCN#构建和任务)
+	
+	6.6 [测试Multi-flavor项目](https://github.com/inferjay/GradlePluginUserGuideCN#测试multi-flavors项目)
+	
+	6.7 [Multi-flavo变体](https://github.com/inferjay/GradlePluginUserGuideCN#multi-flavor变体)
+	
+7. [**高级构建定制**](https://github.com/inferjay/GradlePluginUserGuideCN#高级构建定制)
+
+	7.1 [构建选项](https://github.com/inferjay/GradlePluginUserGuideCN#构建选项)
+	
+	7.1.1 [Java编译选项](https://github.com/inferjay/GradlePluginUserGuideCN#java编译选项)
+	
+	7.1.2 [aapt选项](https://github.com/inferjay/GradlePluginUserGuideCN#aapt选项)
+	
+	7.1.3 [dex选项](https://github.com/inferjay/GradlePluginUserGuideCN#dex选项)
+	
+	7.2 [操纵构建任务](https://github.com/inferjay/GradlePluginUserGuideCN#操纵构建任务)
+	
+	7.3 [构建类型和Product Flavor属性引用](https://github.com/inferjay/GradlePluginUserGuideCN#构建类型和product-flavor属性引用)
+	
+	7.4 [使用sourceCompatibility 1.7](https://github.com/inferjay/GradlePluginUserGuideCN#使用sourcecompatibility-17)
 		
 ##引言
 
@@ -1032,7 +1080,8 @@ For instance, with the default `debug` and `release` Build Types, the above exam
 * Flavor2 - release
 
 Projects with no flavors still have Build Variants, but the single `default` flavor/config is used, nameless, making the list of variants similar to the list of *Build Types*.
-Product Flavor Configuration
+
+###Product Flavor配置
 
 Each flavors is configured with a closure:
 

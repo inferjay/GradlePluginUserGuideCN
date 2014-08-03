@@ -4,6 +4,7 @@ Gradle Plugin User Guide 中文版
 
 目录
 
+<<<<<<< HEAD
 1. [**引言**](https://github.com/inferjay/GradlePluginUserGuideCN#引言)
 	
 	1.1. [新构建系统的目标](https://github.com/inferjay/GradlePluginUserGuideCN#新构建系统的目标)
@@ -103,6 +104,59 @@ Gradle Plugin User Guide 中文版
 	7.3 [构建类型和Product Flavor属性引用](https://github.com/inferjay/GradlePluginUserGuideCN#构建类型和product-flavor属性引用)
 	
 	7.4 [使用sourceCompatibility 1.7](https://github.com/inferjay/GradlePluginUserGuideCN#使用sourcecompatibility-17)
+=======
+	1. 引言
+		1.1. [新构建系统的目标](https://github.com/inferjay/GradlePluginUserGuideCN#新构建系统的目标)
+		1.2. 为什么用Gradle?	
+	2. 要求
+	3. 基本项目
+		3.1. 简单的构建文件
+		3.2. 项目结构
+			3.2.1. 配置项目结构
+		3.3. 构建任务
+			3.3.1. 普通构建任务
+			3.3.2. Java项目构建任务
+			3.3.3. Android项目构建任务
+		3.4. 基本构建定制
+			3.4.1. Manifest entries
+			3.4.2. 构建类型
+			3.4.3. 签名配置
+			3.4.4 运行ProGuard
+	4 依赖, Android库和多项目设置
+		4.1 二进制软件包的依赖
+			4.1.1 本地包
+			4.1.2 远程包
+		4.2 多项目设置
+		4.3 库项目
+			4.3.1 创建一个库项目
+			4.3.2 项目和库项目之间的差异
+			4.3.3 引用一个库
+			4.3.4 库的发布
+	5 测试
+		5.1 基本信息和配置
+		5.2 运行测试
+		5.3 测试Android Libraries
+		5.4 测试报告
+			5.4.1 单个项目测试报告
+			5.4.2 多个项目测试报告
+		5.5 Lint支持
+	6 构建变体
+		6.1 Product flavors
+		6.2 构建类型 + Product Flavor = 构建变体
+		6.3 Product Flavor配置
+		6.4 源码集合和依赖
+		6.5 构建和任务
+		6.6 测试Multi-flavor项目
+		6.7 Multi-flavor variants
+	7 高级构建定制
+		7.1 构建选项
+			7.1.1 Java编译选项
+			7.1.2 aapt选项
+			7.1.3 dex选项
+		7.2 操纵构建任务
+		7.3 构建类型和Product Flavor属性引用
+		7.4 使用sourceCompatibility 1.7
+>>>>>>> FETCH_HEAD
 		
 ##引言
 

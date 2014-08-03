@@ -7,7 +7,7 @@ Gradle Plugin User Guide 中文版
 	1 Introduction
 		1.1 Goals of the new Build System	
 		1.2 Why Gradle?	
-		2 Requirements	
+	2 Requirements	
 	3 Basic Project
 		3.1 Simple build files
 		3.2 Project Structure

@@ -5,7 +5,7 @@ Gradle Plugin User Guide 中文版
 目录
 
 	1 引言
-		1.1 新构建系统的目标	
+		1.1 [新构建系统的目标](https://github.com/inferjay/GradlePluginUserGuideCN#新构建系统的目标)
 		1.2 为什么用Gradle?	
 	2 要求	
 	3 基本项目

@@ -4,22 +4,22 @@ Gradle Plugin User Guide 中文版
 
 目录
 
-	1 引言
-		1.1 [新构建系统的目标](https://github.com/inferjay/GradlePluginUserGuideCN#新构建系统的目标)
-		1.2 为什么用Gradle?	
-	2 要求	
-	3 基本项目
-		3.1 简单的构建文件
-		3.2 项目结构
-			3.2.1 配置项目结构
-		3.3 构建任务
-			3.3.1 普通构建任务
-			3.3.2 Java项目构建任务
-			3.3.3 Android项目构建任务
-		3.4 基本构建定制
-			3.4.1 Manifest entries
-			3.4.2 构建类型
-			3.4.3 签名配置
+	1. 引言
+		1.1. [新构建系统的目标](https://github.com/inferjay/GradlePluginUserGuideCN#新构建系统的目标)
+		1.2. 为什么用Gradle?	
+	2. 要求
+	3. 基本项目
+		3.1. 简单的构建文件
+		3.2. 项目结构
+			3.2.1. 配置项目结构
+		3.3. 构建任务
+			3.3.1. 普通构建任务
+			3.3.2. Java项目构建任务
+			3.3.3. Android项目构建任务
+		3.4. 基本构建定制
+			3.4.1. Manifest entries
+			3.4.2. 构建类型
+			3.4.3. 签名配置
 			3.4.4 运行ProGuard
 	4 依赖, Android库和多项目设置
 		4.1 二进制软件包的依赖

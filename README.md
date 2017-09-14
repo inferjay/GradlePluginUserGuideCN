@@ -105,11 +105,11 @@ Gradle Plugin User Guide 中文版
 	7.4 [使用sourceCompatibility 1.7](https://github.com/inferjay/GradlePluginUserGuideCN#使用sourcecompatibility-17)
 
 		
-##引言
+## 引言
 
 **This documentation is for the Gradle plugin version 0.9. Earlier versions may differ due to non-compatible we are introducing before 1.0.**
 
-###新构建系统的目标
+### 新构建系统的目标
 
 The goals of the new build system are:
 
@@ -118,7 +118,7 @@ The goals of the new build system are:
 * Make it easy to configure, extend and customize the build process
 * Good IDE integration
 
-###为什么用Gradle?
+### 为什么用Gradle?
 
 Gradle is an advanced build system as well as an advanced build toolkit allowing to create custom build logic through plugins.
 
@@ -131,16 +131,16 @@ Here are some of its features that made us choose Gradle:
 * Plugins can expose their own DSL and their own API for build files to use.
 * Good Tooling API allowing IDE integration
 
-##要求
+## 要求
 
 * Gradle 1.10 or 1.11 or 1.12 with the plugin 0.11.1
 * SDK with Build Tools 19.0.0. Some features may require a more recent version.
 
-##基本项目
+## 基本项目
 
 A Gradle project describes its build in a file called build.gradle located in the root folder of the project.
 
-###简单的构建文件
+### 简单的构建文件
 
 The most simple Java-only project has the following *build.gradle*:
 
@@ -184,7 +184,7 @@ The compilation `target` is the same as the target property in the project.prope
 **Note:** You will also need a local.properties file to set the location of the SDK in the same way that the existing SDK requires, using the `sdk.dir` property.
 Alternatively, you can set an environment variable called `ANDROID_HOME`. There is no differences between the two methods, you can use the one you prefer.
 
-###项目结构
+### 项目结构
 
 The basic build files above expect a default folder structure. Gradle follows the concept of convention over configuration, providing sensible default option values when possible.
 
@@ -211,7 +211,7 @@ For the Android plugin, extra files and folders specific to Android:
 
 Note: src/androidTest/AndroidManifest.xml is not needed as it is created automatically.
 
-####项目结构配置
+#### 项目结构配置
 
 When the default project structure isn’t adequate, it is possible to configure it. According to the Gradle documentation, reconfiguring the sourceSets for a Java project can be done with the following:
 
@@ -263,9 +263,9 @@ This is Android specific and will not work on Java sourceSets.
 
 The ‘migrated’ sample shows this.
 
-###构建任务
+### 构建任务
 
-####普通构建任务
+#### 普通构建任务
 
 Applying a plugin to the build file automatically creates a set of build tasks to run. Both the Java plugin and the Android plugin do this.
 The convention for tasks is the following:
@@ -302,7 +302,7 @@ For a full list and seeing dependencies between the tasks run:
 **Note:** Gradle automatically monitor the declared inputs and outputs of a task.
 Running the build twice without change will make Gradle report all tasks as UP-TO-DATE, meaning no work was required. This allows tasks to properly depend on each other without requiring unneeded build operations.
 
-####Java项目构建任务
+#### Java项目构建任务
 
 The Java plugin creates mainly two tasks, that are dependencies of the main anchor tasks:
 
@@ -323,7 +323,7 @@ In general, you will probably only ever call `assemble` or `check`, and ignore t
 
 You can see the full set of tasks and their descriptions for the Java plugin [here](http://gradle.org/docs/current/userguide/java_plugin.html).
 
-####Android项目构建任务
+#### Android项目构建任务
 
 The Android plugin use the same convention to stay compatible with other plugins, and adds an additional anchor task:
 
@@ -379,11 +379,11 @@ The check anchor tasks have their own dependencies:
 
 Finally, the plugin creates install/uninstall tasks for all build types (debug, release, test), as long as they can be installed (which requires signing).
 
-####基本构建定制
+#### 基本构建定制
 
 The Android plugin provides a broad DSL to customize most things directly from the build system.
 
-####Manifest entries
+#### Manifest entries
 
 Through the DSL it is possible to configure the following manifest entries:
 
@@ -463,7 +463,7 @@ The value of the 2nd column is important if you use custom logic in the build sc
 If the value remains null, then it is replaced at build time by the actual default from column 3, but the DSL element does not contain this default value so you can't query against it.
 This is to prevent parsing the manifest of the application unless it’s really needed. 
 
-####构建类型
+#### 构建类型
 
 By default, the Android plugin automatically sets up the project to build both a debug and a release version of the application.
 These differ mostly around the ability to debug the application on a secure (non dev) devices, and how the APK is signed.
@@ -545,7 +545,7 @@ The code/resources of the BuildType are used in the following way:
 * The code acts as just another source folder
 * The resources are overlayed over the main resources, replacing existing values.
 
-####签名配置
+#### 签名配置
 
 Signing an application requires the following:
 
@@ -601,7 +601,7 @@ Note: Location of keystores are usually relative to the root of the project, but
 
 **We'll update this guide with more detailed information later.**
 
-#####运行ProGuard
+##### 运行ProGuard
 
 ProGuard is supported through the Gradle plugin for ProGuard version 4.10. The ProGuard plugin is applied automatically, and the tasks are created automatically if the Build Type is configured to run ProGuard through the runProguard property.
 
@@ -631,13 +631,13 @@ There are 2 default rules files
 
 They are located in the SDK. Using *getDefaultProguardFile()* will return the full path to the files. They are identical except for enabling optimizations.
 
-##依赖, Android库和多项目设置
+## 依赖, Android库和多项目设置
 
 Gradle projects can have dependencies on other components. These components can be external binary packages, or other Gradle projects.
 
-###依赖二进制包
+### 依赖二进制包
 
-####本地包
+#### 本地包
 
 To configure a dependency on an external library jar, you need to add a dependency on the compile configuration.
 
@@ -665,7 +665,7 @@ Creating a new Build Type automatically creates a new configuration based on its
 
 This can be useful if the debug version needs to use a custom library (to report crashes for instance), while the release doesn’t, or if they rely on different versions of the same library.
 
-####远程包
+#### 远程包
 
 Gradle supports pulling artifacts from Maven and Ivy repositories.
 
@@ -689,7 +689,7 @@ Note: Gradle will follow all dependencies transitively. This means that if a dep
 
 For more information about setting up dependencies, read the Gradle user guide here, and DSL documentation here.
 
-###多项目设置
+### 多项目设置
 Gradle projects can also depend on other gradle projects by using a multi-project setup.
 
 A multi-project setup usually works by having all the projects as sub folders of a given root project.
@@ -737,13 +737,13 @@ The :app project is likely to depend on the libraries, and this is done by decla
 
 More general information about multi-project setup [here](http://gradle.org/docs/current/userguide/multi_project_builds.html).
 
-###Library项目
+### Library项目
 
 In the above multi-project setup, :libraries:lib1 and :libraries:lib2 can be Java projects, and the :app Android project will use their jar output.
 
 However, if you want to share code that accesses Android APIs or uses Android-style resources, these libraries cannot be regular Java project, they have to be Android Library Projects.
 
-####创建一个Library项目
+#### 创建一个Library项目
 
 A Library project is very similar to a regular Android project with a few differences.
 
@@ -768,7 +768,7 @@ com.android.tools.build.gradle jar.
 
 This creates a library project that uses API 15 to compile. SourceSets, and dependencies are handled the same as they are in an application project and can be customized the same way.
 
-####项目和Library项目之间的差异
+#### 项目和Library项目之间的差异
 
 A Library project's main output is an .aar package (which stands for Android archive). It is a combination of compile code (as a jar file and/or native .so files) and resources (manifest, res, assets).
 A library project can also generate a test apk to test the library independently from an application.
@@ -779,7 +779,7 @@ difference in commands to build such a project.
 For the rest, libraries behave the same as application projects. They have build types and product flavors, and can potentially generate more than one version of the aar.
 Note that most of the configuration of the Build Type do not apply to library projects. However you can use the custom sourceSet to change the content of the library depending on whether it’s used by a project or being tested.
 
-####引用一个Library
+#### 引用一个Library
 
 Referencing a library is done the same way any other project is referenced:
 
@@ -790,7 +790,7 @@ Referencing a library is done the same way any other project is referenced:
 
 Note: if you have more than one library, then the order will be important. This is similar to the old build system where the order of the dependencies in the project.properties file was important.
 
-####Library的发布
+#### Library的发布
 
 By default a library only publishes its release variant. This variant will be used by all projects referencing the library, no matter which variant they build themselves. This is a temporary limitation due to Gradle limitations that we are working towards removing.
 
@@ -831,11 +831,11 @@ To create a dependency on another published artifact, you need to specify which 
 
 **Important:** When enabling publishing of non default, the Maven publishing plugin will publish these additional variants as extra packages (with classifier). This means that this is not really compatible with publishing to a maven repository. You should either publish a single variant to a repository OR enable all config publishing for inter-project dependencies.
 
-##测试
+## 测试
 
 Building a test application is integrated into the application project. There is no need for a separate test project anymore.
 
-###测试的基本信息和配置
+### 测试的基本信息和配置
 
 As mentioned previously, next to the main sourceSet is the androidTest sourceSet, located by default in src/androidTest/
 From this sourceSet is built a test apk that can be deployed to a device to test the application using the Android testing framework. This can contain unit tests, instrumentation tests, and later uiautomator tests.
@@ -877,7 +877,7 @@ Currently only one Build Type is tested. By default it is the debug Build Type, 
     	testBuildType "staging"
 	}
 
-###运行测试
+### 运行测试
 
 As mentioned previously, checks requiring a connected device are launched with the anchor task called connectedCheck.
 This depends on the task androidTest and therefore will run it. This task does the following:
@@ -905,7 +905,7 @@ This can be configured with
 
 The value of `android.testOptions.resultsDir` is evaluated with `Project.file(String)`
 
-####测试Android Libraries
+#### 测试Android Libraries
 
 Testing Android Library project is done exactly the same way as application projects.
 
@@ -916,12 +916,12 @@ The `androidTest` task is changed to only install (and uninstall) the test APK (
 
 Everything else is identical.
 
-###测试报告
+### 测试报告
 
 When running unit tests, Gradle outputs an HTML report to easily look at the results.
 The Android plugins build on this and extends the HTML report to aggregate the results from all connected devices.
 
-####单个项目的测试报告
+#### 单个项目的测试报告
 
 The project is automatically generated upon running the tests. Its default location is
 
@@ -941,7 +941,7 @@ The location can be customized with
 
 The report will aggregate tests that ran on different devices.
 
-####多项目的测试报告
+#### 多项目的测试报告
 
 In a multi project setup with application(s) and library(ies) projects, when running all tests at the same time, it might be useful to generate a single reports for all tests.
 
@@ -967,7 +967,7 @@ Then from the root folder, the following command line will run all the tests and
 
 Note: the `--continue` option ensure that all tests, from all sub-projects will be run even if one of them fails. Without it the first failing test will interrupt the run and not all projects may have their tests run.
 
-###Lint支持
+### Lint支持
 
 As of version 0.7.0, you can run lint for a specific variant, or for all variants, in which case it produces a report which describes which specific variants a given issue applies to.
 
@@ -1027,7 +1027,7 @@ You can configure lint by adding a lintOptions section like following. You typic
     	}
 	}
 
-##构建变体
+## 构建变体
 
 One goal of the new build system is to enable creating different versions of the same application.
 
@@ -1040,7 +1040,7 @@ See http://developer.android.com/google/play/publishing/multiple-apks.html for m
 3. A combination of 1. and 2. 
 The goal was to be able to generate these different APKs from the same project, as opposed to using a single Library Projects and 2+ Application Projects.
 
-###Product flavors
+### Product flavors
 
 A product flavor defines a customized version of the application build by the project. A single project can have different flavors which change the generated application.
 
@@ -1065,7 +1065,7 @@ Product flavors are declared using a productFlavors DSL container:
 This creates two flavors, called `flavor1` and `flavor2`.
 Note: The name of the flavors cannot collide with existing Build Type names, or with the `androidTest` sourceSet.
 
-###构建类型 + Product Flavor = 构建变体
+### 构建类型 + Product Flavor = 构建变体
 
 As we have seen before, each Build Type generates a new APK.
 
@@ -1082,7 +1082,7 @@ For instance, with the default `debug` and `release` Build Types, the above exam
 
 Projects with no flavors still have Build Variants, but the single `default` flavor/config is used, nameless, making the list of variants similar to the list of *Build Types*.
 
-###Product Flavor配置
+### Product Flavor配置
 
 Each flavors is configured with a closure:
 
@@ -1127,7 +1127,7 @@ There are cases where a setting is settable on both the Build Type and the Produ
 For instance, `signingConfig` is one of these properties.
 This enables either having all release packages share the same SigningConfig, by setting `android.buildTypes.release.signingConfig`, or have each release package use their own *SigningConfig* by setting each `android.productFlavors.*.signingConfig` objects separately.
 
-###源码集合和依赖
+### 源码集合和依赖
 
 Similar to Build Types, Product Flavors also contribute code and resources through their own sourceSets.
 
@@ -1186,7 +1186,7 @@ Additional sourcesets are also created for each variants:
 
 These have higher priority than the build type `sourcesets`, and allow customization at the variant level.
 
-###构建和任务
+### 构建和任务
 
 We previously saw that each Build Type creates its own assemble<name> task, but that Build Variants are a combination of Build Type and Product Flavor.
 
@@ -1204,7 +1204,7 @@ When Product Flavors are used, more assemble-type tasks are created. These are:
 
 The task assemble will build all possible variants.
 
-###测试Multi-flavors项目
+### 测试Multi-flavors项目
 
 Testing multi-flavors project is very similar to simpler projects.
 
@@ -1251,7 +1251,7 @@ The location of the test results and reports is as follows, first for the per fl
 
 Customizing either path, will only change the root folder and still create sub folders per-flavor and aggregated results/reports.
 
-###Multi-flavor变体
+### Multi-flavor变体
 
 In some case, one may want to create several versions of the same apps based on more than one criteria.
 For instance, multi-apk support in Google Play supports 4 different filters. Creating different APKs split on each filter requires being able to use more than one dimension of Product Flavors.
@@ -1324,11 +1324,11 @@ Multi-flavors projects also have additional sourcesets, similar to the variant s
 
 These allow customization at the flavor-combination level. They have higher priority than the basic flavor sourcesets, but lower priority than the build type sourcesets.
 
-##高级构建定制
+## 高级构建定制
 
-###构建选项
+### 构建选项
 
-####Java编译选项
+#### Java编译选项
 
 	android {
     	compileOptions {
@@ -1339,7 +1339,7 @@ These allow customization at the flavor-combination level. They have higher prio
 
 Default value is “1.6”. This affect all tasks compiling Java source code.
 
-####aapt选项
+#### aapt选项
 
 	android {
     	aaptOptions {
@@ -1350,7 +1350,7 @@ Default value is “1.6”. This affect all tasks compiling Java source code.
 
 This affects all tasks using aapt.
 
-####dex选项
+#### dex选项
 
 	android {
     	dexOptions {
@@ -1362,7 +1362,7 @@ This affects all tasks using aapt.
 
 This affects all tasks using dex.
 
-###操纵构建任务
+### 操纵构建任务
 
 Basic Java projects have a finite set of tasks that all work together to create an output.
 The classes task is the one that compile the Java source code.
@@ -1498,12 +1498,12 @@ This API is subject to change. In general the current API is around giving acces
 
 For Gradle tasks (DefaultTask, JavaCompile, Copy, Zip), refer to the Gradle documentation.
 
-###构建类型和Product Flavor属性引用
+### 构建类型和Product Flavor属性引用
 
 coming soon.
 For Gradle tasks (DefaultTask, JavaCompile, Copy, Zip), refer to the Gradle documentation.
 
-###使用sourceCompatibility 1.7
+### 使用sourceCompatibility 1.7
 
 With Android KitKat (buildToolsVersion 19) you can use the diamond operator, multi-catch, strings in switches, try with resources, etc. To do this, add the following to your build file:
 

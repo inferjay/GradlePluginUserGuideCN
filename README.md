@@ -78,7 +78,7 @@ Gradle Plugin User Guide 中文版
 	
 	6.2 [构建类型 + Product Flavor = 构建变体](https://github.com/inferjay/GradlePluginUserGuideCN#构建类型--product-flavor--构建变体)
 	
-	6.3 [Product Flavor配置](https://github.com/inferjay/GradlePluginUserGuideCN#Product Flavor配置)
+	6.3 [Product Flavor配置](https://github.com/inferjay/GradlePluginUserGuideCN#Product-Flavor配置)
 	
 	6.4 [源码集合和依赖](https://github.com/inferjay/GradlePluginUserGuideCN#源码集合和依赖)
 	
@@ -1388,8 +1388,8 @@ The DomainObjectCollection gives access to all the objects directly, or through 
 
 All three variant classes share the following properties:
 
-| Property Name  | Property Type | Description |
-|:----------|:-------------|:------|:----------| 
+| Property Name | Property Type | Description |
+| ------------ | ------------- | ------------- |
 | name	 |  String	 |  The name of the variant. Guaranteed to be unique. |
 | description	  | String	 |  Human readable description of the variant. |
 | dirName	 |  String	 |  subfolder name for the variant. Guaranteed to be unique. Maybe more than one folder, ie “debug/flavor1” |
@@ -1408,8 +1408,8 @@ All three variant classes share the following properties:
 
 **The** *ApplicationVariant* class adds the following:
 
-| Property Name  | Property Type | Description |
-|:----------|:-------------|:------|:----------| 
+| Property Name | Property Type | Description |
+| ------------ | ------------- | ------------- |
 | buildType | BuildType	 | The BuildType of the variant. | 
 | productFlavors	 |  List<ProductFlavor>	 	 | The ProductFlavors of the variant. Always non Null but could be empty. |
 | mergedFlavor	 |  ProductFlavor		 |  The merging of android.defaultConfig and variant.productFlavors |
@@ -1424,18 +1424,18 @@ All three variant classes share the following properties:
 
 **The** *LibraryVariant* class adds the following:
 
-| Property Name  | Property Type | Description |
-|:----------|:-------------|:------|:----------| 
-| buildType | BuildType	 | The BuildType of the variant.| 
-| mergedFlavor	 |  ProductFlavor | 	 The defaultConfig values| 
+| Property Name | Property Type | Description |
+| ------------ | ------------- | ------------- |
+| buildType | BuildType	 | The BuildType of the variant. | 
+| mergedFlavor	 |  ProductFlavor | 	 The defaultConfig values | 
 | testVariant	  | BuildVariant	 |  The Build Variant that will test this variant. | 
-| packageLibrary | 	 Zip	  | The task that packages the Library AAR archive. | Null if not a library.| 
+| packageLibrary | 	 Zip	  | The task that packages the Library AAR archive. | Null if not a library. | 
 
 **The** *TestVariant* class adds the following:
 
-| Property Name  | Property Type | Description |
-|:----------|:-------------|:------|:----------| 
-| buildType | BuildType	 | The BuildType of the variant.| 
+| Property Name | Property Type | Description |
+| ------------ | ------------- | ------------- |
+| buildType | BuildType	 | The BuildType of the variant. | 
 | productFlavors	 |  List<ProductFlavor>	 	 | The ProductFlavors of the variant. Always non Null but could be empty. |
 | mergedFlavor	 |  ProductFlavor		 |  The merging of android.defaultConfig and variant.productFlavors |
 | signingConfig	 |  SigningConfig		 |  The SigningConfig object used by this variant |
@@ -1446,9 +1446,8 @@ All three variant classes share the following properties:
 | zipAlign | 	 ZipAlign		 |  The task that zipaligns the apk. Can be null if the variant is a library or if the APK cannot be signed. |
 | install	 |  DefaultTask		 |  The installation task. Can be null. |
 | uninstall | 	 DefaultTask		 |  The uninstallation task. |
-| connectedAndroidTest | 	 DefaultTask		 |  The task that runs the android tests on connected devices.
-| providerAndroidTest	 |  DefaultTask		 |  The task that runs the android tests using the extension API.
-
+| connectedAndroidTest | 	 DefaultTask		 |  The task that runs the android tests on connected devices. |
+| providerAndroidTest	 |  DefaultTask		 |  The task that runs the android tests using the extension API. |
 
 API for Android specific task types.
 
